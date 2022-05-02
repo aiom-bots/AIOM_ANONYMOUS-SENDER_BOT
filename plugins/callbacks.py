@@ -3,7 +3,7 @@ from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup
 
 from database.setting import caption_False, caption_True
 
-from .start import REPLY_MARKUP, START
+
 
 
 @Client.on_callback_query(filters.regex("^captz$"))
@@ -47,7 +47,7 @@ async def captno(_, query):
 @Client.on_callback_query(filters.regex("^bbb$"))
 async def backbtt(_, query):
     await query.edit_message_text(
-        START, reply_markup=REPLY_MARKUP, disable_web_page_preview=True
+        "Aaaaaa", disable_web_page_preview=True
     )
 
 
