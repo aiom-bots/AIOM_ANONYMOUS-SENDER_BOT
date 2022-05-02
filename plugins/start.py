@@ -14,11 +14,6 @@ You Can too Clone me :-
 https://github.com/ProThinkerGang/Anonymous-Bot
 """
 
-if var.START_MESSAGE is not None:
-    START = var.START_MESSAGE
-else:
-    START = START_MSG
-
 
 REPLY_MARKUP = InlineKeyboardMarkup(
     [
@@ -34,12 +29,6 @@ async def start(client, message):
     if check_blacklist(fuser):
         return
     add_chat(fuser)
-    NewVar = START
-    if var.OWNER_ID and not message.from_user.id == var.OWNER_ID:
-        geto = await client.get_users(var.OWNER_ID)
-        NewVar += f"\n\nMaintained By {geto.mention}"
-    else:
-        NewVar += "\n**Onwer Commands** - https://telegra.ph/Owner-Commands-05-13"
     await message.reply_text(
-        NewVar, reply_markup=REPLY_MARKUP, disable_web_page_preview=True
+        START_MSG, reply_markup=REPLY_MARKUP, disable_web_page_preview=True
     )
