@@ -6,12 +6,15 @@ from database.userchats import add_chat
 from vars import var
 
 START_MSG = """
-Hi, I am **ANONYMOUS SENDER BOT.**\n
-Just Forward me Some messages or
-media and I will **Anonymize** that !!
+Hᴇʟʟᴏ 👋 {} ,
 
-You Can too Clone me :-
-https://github.com/ProThinkerGang/Anonymous-Bot
+Tʜɪs Is Aɴᴏɴʏᴍᴏᴜs Sᴇɴᴅᴇʀ Bᴏᴛ
+
+Yᴏᴜ Cᴀɴ Usᴇ Mᴇ Aɴᴏɴʏᴍɪᴢᴇ Tᴇʟᴇɢʀᴀᴍ Mᴇssᴀɢᴇs
+
+Jᴜsᴛ Fᴏʀᴡᴀʀᴅ A Mᴇssᴀɢᴇ ᴏʀ Mᴇᴅɪᴀ Tᴏ Sᴛᴀʀᴛ
+
+Pᴏᴡᴇʀᴅ Bʏ : @AIOM_BOTS
 """
 
 
@@ -29,6 +32,8 @@ async def start(client, message):
     if check_blacklist(fuser):
         return
     add_chat(fuser)
-    await message.reply_text(
-        START_MSG, reply_markup=REPLY_MARKUP, disable_web_page_preview=True
+    await message.reply(
+        text=START_MSG.format(message.form_user.mention),
+        reply_markup=REPLY_MARKUP,
+        disable_web_page_preview=True
     )
