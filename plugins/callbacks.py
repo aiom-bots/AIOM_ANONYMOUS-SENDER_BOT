@@ -7,16 +7,16 @@ from database.setting import caption_False, caption_True
 
 @Client.on_callback_query(filters.regex("^help$"))
 async def capa(_, query):
-    await query.edit_message_text(
-        "Cʟɪᴄᴋ Oɴ Sᴇᴛᴛɪɴɢs Aɴᴅ Sᴇʟᴇᴄᴛ Tʜᴇ Dᴇsɪʀᴇᴅ Oᴘᴛɪᴏɴ\n\nTʜᴇɴ Sᴇɴᴅ Mᴇssᴀɢᴇ ᴏʀ Mᴇᴅɪᴀ\n\nI Wɪʟʟ Aɴᴏɴʏᴍɪᴢᴇ Tʜᴀᴛ\n\n© @AIOM_BOTS",
+    await query.edit(
+        text="Cʟɪᴄᴋ Oɴ Sᴇᴛᴛɪɴɢs Aɴᴅ Sᴇʟᴇᴄᴛ Tʜᴇ Dᴇsɪʀᴇᴅ Oᴘᴛɪᴏɴ\n\nTʜᴇɴ Sᴇɴᴅ Mᴇssᴀɢᴇ ᴏʀ Mᴇᴅɪᴀ\n\nI Wɪʟʟ Aɴᴏɴʏᴍɪᴢᴇ Tʜᴀᴛ\n\n© @AIOM_BOTS",
         reply_markup=InlineKeyboardMarkup(
             [
-                [
-                InlineKeyboardButton(text="Sᴇᴛᴛɪɴɢs", callback_data="captz")
-                ],
-                [InlineKeyboardButton(text="« Bᴀᴄᴋ", callback_data="bbb")],
-            ]
-        ),
+            [
+            InlineKeyboardButton(text="Sᴇᴛᴛɪɴɢs", callback_data="captz")
+            ],
+            [
+            InlineKeyboardButton(text="« Bᴀᴄᴋ", callback_data="bbb")],
+            ])
     )
 
 @Client.on_callback_query(filters.regex("^cuscap$"))
