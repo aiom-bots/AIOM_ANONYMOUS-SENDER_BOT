@@ -20,7 +20,7 @@ Pᴏᴡᴇʀᴅ Bʏ : @AIOM_BOTS</b>
 
 REPLY_MARKUP = InlineKeyboardMarkup(
                [[
-               InlineKeyboardButton("Sᴇᴛᴛɪɴɢs", callback_data="captz")
+               InlineKeyboardButton("Sᴇᴛᴛɪɴɢs", callback_data="cuscap")
                ],[     
                InlineKeyboardButton("Hᴇʟᴘ", callback_data="help"),
                InlineKeyboardButton("Aʙᴏᴜᴛ", callback_data="about")
