@@ -31,13 +31,13 @@ REPLY_MARKUP = InlineKeyboardMarkup(
 
 
 @Client.on_message(filters.command("start"))
-async def start(client, message):
-    fuser = message.from_user.id
+async def start(client, msg):
+    fuser = msg.from_user.id
     if check_blacklist(fuser):
         return
     add_chat(fuser)
-    await message.reply(
-        text=START_MSG.format(message.form_user.mention),
+    await msg.reply(
+        text=START_MSG.format(msg.from_user.mention),
         reply_markup=REPLY_MARKUP,
         disable_web_page_preview=True
     )
