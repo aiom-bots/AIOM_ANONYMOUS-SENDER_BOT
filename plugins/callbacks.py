@@ -27,10 +27,10 @@ async def capa(_, query):
             [
                 [
                     InlineKeyboardButton(text="Nᴏʀᴍᴀʟ Cᴀᴘᴛɪᴏɴ", callback_data="ca_yes"),
-                    InlineKeyboardButton(text="Sᴇᴛ", callback_data="captz"),
+                    InlineKeyboardButton(text="Sᴇᴛ", callback_data="captz")
                 ],
                 [
-                   InlineKeyboardButton(text="Cᴜsᴛᴏᴍ Cᴀᴘᴛɪᴏɴ", callback_data="ca_no")
+                   InlineKeyboardButton(text="Cᴜsᴛᴏᴍ Cᴀᴘᴛɪᴏɴ", callback_data="ca_no"),
                    InlineKeyboardButton(text="Sᴇᴛ", callback_data="bbb")],
             ]
         ),
