@@ -1,10 +1,23 @@
 from pyrogram import Client, filters
 from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup
-
+from plugins.start import START_MSG, REPLY_MARKUP
 from database.setting import caption_False, caption_True
 
 
 
+@Client.on_callback_query(filters.regex("^help$"))
+async def capa(_, query):
+    await query.edit_message_text(
+        "Cʟɪᴄᴋ Oɴ Sᴇᴛᴛɪɴɢs Aɴᴅ Sᴇʟᴇᴄᴛ Tʜᴇ Dᴇsɪʀᴇᴅ Oᴘᴛɪᴏɴ\n\nTʜᴇɴ Sᴇɴᴅ Mᴇssᴀɢᴇ ᴏʀ Mᴇᴅɪᴀ\n\nI Wɪʟʟ Aɴᴏɴʏᴍɪᴢᴇ Tʜᴀᴛ\n\n© @AIOM_BOTS",
+        reply_markup=InlineKeyboardMarkup(
+            [
+                [
+                InlineKeyboardButton(text="Sᴇᴛᴛɪɴɢs", callback_data="captz")
+                ],
+                [InlineKeyboardButton(text="« Bᴀᴄᴋ", callback_data="bbb")],
+            ]
+        ),
+    )
 
 @Client.on_callback_query(filters.regex("^captz$"))
 async def capa(_, query):
@@ -47,7 +60,7 @@ async def captno(_, query):
 @Client.on_callback_query(filters.regex("^bbb$"))
 async def backbtt(_, query):
     await query.edit_message_text(
-        "Aaaaaa", disable_web_page_preview=True
+        START_MSG, reply_markup=REPLY_MARKUP, disable_web_page_preview=True
     )
 
 
