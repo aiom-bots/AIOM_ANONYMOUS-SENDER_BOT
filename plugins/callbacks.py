@@ -1,46 +1,39 @@
 from pyrogram import Client, filters
-from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup
+from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup, CallbackQuery
 from plugins.start import START_MSG, REPLY_MARKUP
 from database.setting import caption_False, caption_True
 
 
 
-@Client.on_callback_query(filters.regex("^help$"))
-async def capa(_, query):
-    await query.edit(
-        text="Cʟɪᴄᴋ Oɴ Sᴇᴛᴛɪɴɢs Aɴᴅ Sᴇʟᴇᴄᴛ Tʜᴇ Dᴇsɪʀᴇᴅ Oᴘᴛɪᴏɴ\n\nTʜᴇɴ Sᴇɴᴅ Mᴇssᴀɢᴇ ᴏʀ Mᴇᴅɪᴀ\n\nI Wɪʟʟ Aɴᴏɴʏᴍɪᴢᴇ Tʜᴀᴛ\n\n© @AIOM_BOTS",
-        reply_markup=InlineKeyboardMarkup(
-            [
-            [
+@Client.on_callback_query()
+async def capa(c, cb):
+    if cb.data == "help":
+     await cb.message.edit(
+         text="Cʟɪᴄᴋ Oɴ Sᴇᴛᴛɪɴɢs Aɴᴅ Sᴇʟᴇᴄᴛ Tʜᴇ Dᴇsɪʀᴇᴅ Oᴘᴛɪᴏɴ\n\nTʜᴇɴ Sᴇɴᴅ Mᴇssᴀɢᴇ ᴏʀ Mᴇᴅɪᴀ\n\nI Wɪʟʟ Aɴᴏɴʏᴍɪᴢᴇ Tʜᴀᴛ\n\n© @AIOM_BOTS",
+         reply_markup=InlineKeyboardMarkup(
+            [[
             InlineKeyboardButton(text="Sᴇᴛᴛɪɴɢs", callback_data="captz")
-            ],
-            [
-            InlineKeyboardButton(text="« Bᴀᴄᴋ", callback_data="bbb")],
-            ])
-    )
+            ],[
+            InlineKeyboardButton(text="« Bᴀᴄᴋ", callback_data="bbb")
+            ]])
+     )
+    elif cb.data == "cuscap":
+       await cb.message.edit(
+           text="•",
+           reply_markup=InlineKeyboardMarkup(
+            [[
+            InlineKeyboardButton(text="Nᴏʀᴍᴀʟ Cᴀᴘᴛɪᴏɴ", callback_data="ca_yes"),
+            InlineKeyboardButton(text="Sᴇᴛ", callback_data="captz")
+            ],[
+            InlineKeyboardButton(text="Cᴜsᴛᴏᴍ Cᴀᴘᴛɪᴏɴ", callback_data="ca_no"),
+            InlineKeyboardButton(text="Sᴇᴛ", callback_data="bbb")
+            ]])
+       )
 
-@Client.on_callback_query(filters.regex("^cuscap$"))
-async def capa(_, query):
-    await query.edit_message_text(
-        "•",
-        reply_markup=InlineKeyboardMarkup(
-            [
-                [
-                    InlineKeyboardButton(text="Nᴏʀᴍᴀʟ Cᴀᴘᴛɪᴏɴ", callback_data="ca_yes"),
-                    InlineKeyboardButton(text="Sᴇᴛ", callback_data="captz")
-                ],
-                [
-                   InlineKeyboardButton(text="Cᴜsᴛᴏᴍ Cᴀᴘᴛɪᴏɴ", callback_data="ca_no"),
-                   InlineKeyboardButton(text="Sᴇᴛ", callback_data="bbb")],
-            ]
-        ),
-    )
-
-@Client.on_callback_query(filters.regex("^captz$"))
-async def capa(_, query):
-    await query.edit_message_text(
-        "Dᴏ Yᴏᴜ Nᴇᴇᴅ Cᴀᴘᴛɪᴏɴ Fᴏʀ Mᴇᴅɪᴀ Mᴇssᴀɢᴇs ?",
-        reply_markup=InlineKeyboardMarkup(
+    elif cb.data == "captz":
+       await cb.message.edit(
+           text="Dᴏ Yᴏᴜ Nᴇᴇᴅ Cᴀᴘᴛɪᴏɴ Fᴏʀ Mᴇᴅɪᴀ Mᴇssᴀɢᴇs ?",
+           reply_markup=InlineKeyboardMarkup(
             [
                 [
                     InlineKeyboardButton(text="Yes ✅", callback_data="ca_yes"),
@@ -51,7 +44,7 @@ async def capa(_, query):
         ),
     )
 
-
+    elif cb.data == "captz":
 @Client.on_callback_query(filters.regex("^ca_yes$"))
 async def captyes(_, query):
     caption_True(query.from_user.id)
