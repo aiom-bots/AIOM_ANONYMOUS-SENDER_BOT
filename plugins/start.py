@@ -6,7 +6,7 @@ from database.userchats import add_chat
 from vars import var
 
 START_MSG = """
-Hᴇʟʟᴏ 👋 {} ,
+<b>Hᴇʟʟᴏ 👋 {} ,
 
 Tʜɪs Is Aɴᴏɴʏᴍᴏᴜs Sᴇɴᴅᴇʀ Bᴏᴛ
 
@@ -14,17 +14,20 @@ Yᴏᴜ Cᴀɴ Usᴇ Mᴇ Aɴᴏɴʏᴍɪᴢᴇ Tᴇʟᴇɢʀᴀᴍ Mᴇssᴀɢ�
 
 Jᴜsᴛ Fᴏʀᴡᴀʀᴅ A Mᴇssᴀɢᴇ ᴏʀ Mᴇᴅɪᴀ Tᴏ Sᴛᴀʀᴛ
 
-Pᴏᴡᴇʀᴅ Bʏ : @AIOM_BOTS
+Pᴏᴡᴇʀᴅ Bʏ : @AIOM_BOTS</b>
 """
 
 
 REPLY_MARKUP = InlineKeyboardMarkup(
                [[
-               InlineKeyboardButton("Caption Setting", callback_data="captz")
+               InlineKeyboardButton("Sᴇᴛᴛɪɴɢs", callback_data="captz")
                ],[     
-               InlineKeyboardButton("Support Group", url="t.me/FutureCodes")],
-    ]
-)
+               InlineKeyboardButton("Hᴇʟᴘ", callback_data="help"),
+               InlineKeyboardButton("Aʙᴏᴜᴛ", callback_data="about")
+               ],[
+               InlineKeyboardButton("Cʟᴏsᴇ", callback_data="close")
+               ]]
+               )
 
 
 @Client.on_message(filters.command("start"))
