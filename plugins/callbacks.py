@@ -19,10 +19,27 @@ async def capa(_, query):
         ),
     )
 
+@Client.on_callback_query(filters.regex("^cuscap$"))
+async def capa(_, query):
+    await query.edit_message_text(
+        "•",
+        reply_markup=InlineKeyboardMarkup(
+            [
+                [
+                    InlineKeyboardButton(text="Nᴏʀᴍᴀʟ Cᴀᴘᴛɪᴏɴ", callback_data="ca_yes"),
+                    InlineKeyboardButton(text="Sᴇᴛ", callback_data="captz"),
+                ],
+                [
+                   InlineKeyboardButton(text="Cᴜsᴛᴏᴍ Cᴀᴘᴛɪᴏɴ", callback_data="ca_no")
+                   InlineKeyboardButton(text="Sᴇᴛ", callback_data="bbb")],
+            ]
+        ),
+    )
+
 @Client.on_callback_query(filters.regex("^captz$"))
 async def capa(_, query):
     await query.edit_message_text(
-        "Do You Need Caption for Media Messages ?",
+        "Dᴏ Yᴏᴜ Nᴇᴇᴅ Cᴀᴘᴛɪᴏɴ Fᴏʀ Mᴇᴅɪᴀ Mᴇssᴀɢᴇs ?",
         reply_markup=InlineKeyboardMarkup(
             [
                 [
