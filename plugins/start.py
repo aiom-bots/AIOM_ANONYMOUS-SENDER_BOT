@@ -19,9 +19,10 @@ Pᴏᴡᴇʀᴅ Bʏ : @AIOM_BOTS
 
 
 REPLY_MARKUP = InlineKeyboardMarkup(
-    [
-        [InlineKeyboardButton("Caption Setting", callback_data="captz")],
-        [InlineKeyboardButton("Support Group", url="t.me/FutureCodes")],
+               [[
+               InlineKeyboardButton("Caption Setting", callback_data="captz")
+               ],[     
+               InlineKeyboardButton("Support Group", url="t.me/FutureCodes")],
     ]
 )
 
